@@ -198,7 +198,7 @@
         app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toEndOf="@+id/guideline" />
 
-    <ImageView
+    <Button
         android:id="@+id/iv_next_student"
         android:layout_width="46dp"
         android:layout_height="41dp"
