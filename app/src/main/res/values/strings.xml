@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">SouColacaoV1</string>
+    <string name="ver_listas">Ver Listas</string>
+    <string name="ver_listas_carregadas">Ver listas carregadas</string>
+    <string name="finalizar_listas">Finalizar listas</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rg">RG:</string>
+    <string name="nome">Nome:</string>
+    <string name="curso">Curso:</string>
+    <string name="ra">RA:</string>
+    <string name="presente">Presente</string>
+    <string name="procura_o">Procuração</string>
+    <string name="salvar">Salvar</string>
+    <string name="limpar">Limpar</string>
+</resources>
+
+
+
+
