@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_message"
+            android:icon="@drawable/ic_list_alunos_black_24dp"
+            android:title="@string/ver_listas" />
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_alunos_charged_black_24dp"
+            android:title="@string/ver_listas_carregadas" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_alunos_finish_black_24dp"
+            android:title="@string/finalizar_listas" />
+    </group>
+
+</menu>
