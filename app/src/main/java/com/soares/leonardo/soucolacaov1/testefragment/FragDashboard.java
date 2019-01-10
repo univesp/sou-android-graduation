@@ -19,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +31,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 
 /**
@@ -43,33 +43,27 @@ public class FragDashboard extends Fragment {
     private Button mSaveButton;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
-
+    int  id_test=0;
+    //CONTADOR UTILIZADO PARA AVANÇAR OU DIMINUIR
+    int positonStudents=0;
     public FragDashboard() {
         // Required empty public constructor
     }
-   
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_frag_dashboard, container, false);
+        final View view = inflater.inflate(R.layout.fragment_frag_dashboard, container, false);
         final TextView txtRA = (TextView) view.findViewById(R.id.txtRA);
         final TextView txtCurso = (TextView) view.findViewById(R.id.txtCurso);
         final TextView txtRG = (TextView) view.findViewById(R.id.txtRG);
         final TextView txtNome = (TextView) view.findViewById(R.id.txtNome);
-        ImageView next = (ImageView) view.findViewById(R.id.iv_next_student);
-        ImageView previous = (ImageView) view.findViewById(R.id.iv_previous_student);
-
-        DataList ds =  new DataList();
-        final Bundle bundles = getArguments();
-
-
-        final String teste= bundles.getBinder("id").toString();
+        final Button next = (Button) view.findViewById(R.id.iv_next_student);
+        final Button previous = (Button) view.findViewById(R.id.iv_previous_student);
 
 
         mSignaturePad = (SignaturePad) view.findViewById(R.id.signaturePad);
-
 
 
         mSignaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
@@ -103,25 +97,132 @@ public class FragDashboard extends Fragment {
                 mSignaturePad.clear();
             }
         });
-
+        //EVENTO DO BOTÃO DE PROXIMO
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                    txtNome.setText("nome_selecionado");
-                    txtCurso.setText("curso");
-                    txtRA.setText("ra");
-                    txtRG.setText("rg");
+                Bundle bundles = getArguments();
 
+
+                //PEGANDO OS VALORES PASSADO DA FRAGMENT (FragAlunos)
+                ArrayList<String> arrayListId = bundles.getStringArrayList("array_id");
+                ArrayList<String> arrayListNome = bundles.getStringArrayList("array_nome");
+                ArrayList<String> arrayListRa = bundles.getStringArrayList("array_ra");
+                ArrayList<String> arrayListRg = bundles.getStringArrayList("array_rg");
+                ArrayList<String> arrayListCursos = bundles.getStringArrayList("array_curso");
+
+
+                //ID DO ALUNO QUE FOI SELECIONADO NA FRAGMENT(FragAlunos)
+
+              String  idCurrentStudent = (bundles.getString("id"));
+//                int test = Integer.parseInt((bundles.getString("id")));
+                //  Toast.makeText(getActivity(), String.valueOf(idCurrentStudent), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), idCurrentStudent, Toast.LENGTH_SHORT).show();
+
+                //PERCORRENDO O ARRAY
+                for (int i = 0; i <= arrayListId.size() - 1; i++) {
+
+
+                    //VERIFICANDO SE A POSSICÇAO DO ALUNO ESTA IGUAL AO INDICE DO ARRAY
+                    if (idCurrentStudent.equals(arrayListId.get(i))) {
+                        //id_test=i+1;
+
+                       // idCurrentStudent=+1;
+
+                       // int ts =i+1;
+
+                   //     Toast.makeText(getActivity(), idCurrentStudent, Toast.LENGTH_SHORT).show();
+
+
+//String t =arrayListNome.get(i+1);
+                        //    Toast.makeText(getActivity(), arrayListId.get(i+1), Toast.LENGTH_SHORT).show();
+
+                        // String teste =arrayListId.get(i+1);
+
+                        // positonStudents += i+1;
+
+
+                        //Toast.makeText(getActivity(), teste, Toast.LENGTH_SHORT).show();
+
+                        //txtNome.setText(arrayListNome.get(ts));
+                      //  txtCurso.setText(arrayListCursos.get(ts));
+                       // txtRA.setText(arrayListRa.get(ts));
+                      //  txtRG.setText(arrayListRg.get(ts));
+
+
+                        if (positonStudents == arrayListId.size() - 1) {
+
+                            next.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //  Toast.makeText(getActivity(), positonStudents, Toast.LENGTH_SHORT).show();
+                                  Toast.makeText(getActivity(), "Lista de alunos finalizada!!", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+                        }
+
+                    }
+                    // positonStudents=0;
+
+                }
 
             }
         });
+
 
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
+                Bundle bundles = getArguments();
+
+
+                ArrayList<String> arrayListId = bundles.getStringArrayList("array_id");
+                ArrayList<String> arrayListNome = bundles.getStringArrayList("array_nome");
+                ArrayList<String> arrayListRa = bundles.getStringArrayList("array_ra");
+                ArrayList<String> arrayListRg = bundles.getStringArrayList("array_rg");
+                ArrayList<String> arrayListCursos = bundles.getStringArrayList("array_curso");
+
+//
+
+
+                String idCurrentStudent = (bundles.getString("id").toString());
+
+
+                for (int i = 0; i <= arrayListId.size() - 1; i++) {
+
+
+                    if (idCurrentStudent.equals(arrayListId.get(i))) {
+
+
+                        int positonStudents = i + 1;
+
+
+                        txtNome.setText(arrayListNome.get(positonStudents));
+                        txtCurso.setText(arrayListCursos.get(positonStudents));
+                        txtRA.setText(arrayListRa.get(positonStudents));
+                        txtRG.setText(arrayListRg.get(positonStudents));
+
+
+                        if (positonStudents == 0) {
+
+                            previous.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Toast.makeText(getActivity(), "Lista de alunos finalizada!!", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+                        }
+
+                    }
+
+                }
 
             }
         });
@@ -150,19 +251,16 @@ public class FragDashboard extends Fragment {
         });
 
 
-        DataList d =  new DataList();
+        DataList d = new DataList();
         Bundle bundle = getArguments();
 
+        if (bundle.getString("nome_selecionado") != null) {
+            // Toast.makeText(getActivity(), "Cannot write images to external storage", Toast.LENGTH_SHORT).show();
 
-
-
-
-        if (bundle.getString("nome_selecionado") != null ) {
-String testes=(bundle.getString("id"));
-                txtNome.setText(bundle.getString("nome_selecionado"));
-                txtCurso.setText(bundle.getString("curso"));
-                txtRA.setText(bundle.getString("ra"));
-                txtRG.setText(bundle.getString("rg"));
+            txtNome.setText(bundle.getString("nome_selecionado"));
+            txtCurso.setText(bundle.getString("curso"));
+            txtRA.setText(bundle.getString("ra"));
+            txtRG.setText(bundle.getString("rg"));
 
         }
 
@@ -192,6 +290,7 @@ String testes=(bundle.getString("id"));
         }
         return file;
     }
+
     // SALVA O BITMAP EM JPG
     public void saveBitmapToJPG(Bitmap bitmap, File photo) throws IOException {
         Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
@@ -202,6 +301,7 @@ String testes=(bundle.getString("id"));
         newBitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
         stream.close();
     }
+
     //SALVA O JPG NA GALERIA
     public boolean addJpgSignatureToGallery(Bitmap signature) {
         boolean result = false;
@@ -260,7 +360,6 @@ String testes=(bundle.getString("id"));
                     REQUEST_EXTERNAL_STORAGE
             );
         }
-
 
 
     }
