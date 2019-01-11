@@ -19,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +45,8 @@ public class FragDashboard extends Fragment {
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     int  id_test=0;
     //CONTADOR UTILIZADO PARA AVANÇAR OU DIMINUIR
+
+    int positonStudents=0;
     public FragDashboard() {
         // Required empty public constructor
     }
@@ -60,7 +61,11 @@ public class FragDashboard extends Fragment {
         final TextView txtRG = (TextView) view.findViewById(R.id.txtRG);
         final TextView txtNome = (TextView) view.findViewById(R.id.txtNome);
         final Button next = (Button) view.findViewById(R.id.iv_next_student);
+
         final ImageView previous = (ImageView) view.findViewById(R.id.iv_previous_student);
+
+        final Button previous = (Button) view.findViewById(R.id.iv_previous_student);
+
 
 
         mSignaturePad = (SignaturePad) view.findViewById(R.id.signaturePad);
@@ -114,9 +119,16 @@ public class FragDashboard extends Fragment {
 
 
                 //ID DO ALUNO QUE FOI SELECIONADO NA FRAGMENT(FragAlunos)
+
                 String idCurrentStudent = (bundles.getString("id").toString());
 //                int test = Integer.parseInt((bundles.getString("id")));
                 //  Toast.makeText(getActivity(), test, Toast.LENGTH_SHORT).show();
+
+              String  idCurrentStudent = (bundles.getString("id"));
+//                int test = Integer.parseInt((bundles.getString("id")));
+                //  Toast.makeText(getActivity(), String.valueOf(idCurrentStudent), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), idCurrentStudent, Toast.LENGTH_SHORT).show();
+
 
                 //PERCORRENDO O ARRAY
                 for (int i = 0; i <= arrayListId.size() - 1; i++) {
@@ -124,10 +136,20 @@ public class FragDashboard extends Fragment {
 
                     //VERIFICANDO SE A POSSICÇAO DO ALUNO ESTA IGUAL AO INDICE DO ARRAY
                     if (idCurrentStudent.equals(arrayListId.get(i))) {
+
                         id_test=id_test+i+1;
 
 
 
+
+
+                        //id_test=i+1;
+
+                       // idCurrentStudent=+1;
+
+                       // int ts =i+1;
+
+                   //     Toast.makeText(getActivity(), idCurrentStudent, Toast.LENGTH_SHORT).show();
 
 
 
@@ -140,6 +162,7 @@ public class FragDashboard extends Fragment {
 
 
                         //Toast.makeText(getActivity(), teste, Toast.LENGTH_SHORT).show();
+
 
                         txtNome.setText(arrayListNome.get(id_test));
                         txtCurso.setText(arrayListCursos.get(id_test));
@@ -162,6 +185,30 @@ public class FragDashboard extends Fragment {
 
                     }
                     // positonStudents=0;
+
+
+                        //txtNome.setText(arrayListNome.get(ts));
+                      //  txtCurso.setText(arrayListCursos.get(ts));
+                       // txtRA.setText(arrayListRa.get(ts));
+                      //  txtRG.setText(arrayListRg.get(ts));
+
+
+                        if (positonStudents == arrayListId.size() - 1) {
+
+                            next.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //  Toast.makeText(getActivity(), positonStudents, Toast.LENGTH_SHORT).show();
+                                  Toast.makeText(getActivity(), "Lista de alunos finalizada!!", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+                        }
+
+                    }
+                    // positonStudents=0;
+
 
                 }
 
