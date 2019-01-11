@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+//teste
         FragEventos fragEventos = new FragEventos();
         FragmentManager fragmentManager_eventos = getSupportFragmentManager();
         fragmentManager_eventos.beginTransaction().replace(R.id.cl_eventos, fragEventos).commit();
