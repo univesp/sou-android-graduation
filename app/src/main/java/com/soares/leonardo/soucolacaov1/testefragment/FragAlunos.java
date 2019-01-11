@@ -63,7 +63,6 @@ public class FragAlunos extends Fragment {
         list_rg = new ArrayList<>();
         list_ra = new ArrayList<>();
         list_curso = new ArrayList<>();
-        //lista_all=new ArrayList<>();
         adapter_alunos = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, lista_alunos);
 
         lvalunos.setAdapter(adapter_alunos);

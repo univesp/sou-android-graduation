@@ -44,7 +44,6 @@ public class FragDashboard extends Fragment {
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     int id_test = 0;
-    //CONTADOR UTILIZADO PARA AVANÇAR OU DIMINUIR
     int positonStudents = 0;
 
     public FragDashboard() {

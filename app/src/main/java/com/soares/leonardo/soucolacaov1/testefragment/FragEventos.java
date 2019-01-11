@@ -37,7 +37,6 @@ public class FragEventos extends Fragment {
 
         ListView lveventos = view.findViewById(R.id.lv_frag_1);
 
-        /*ADICIONANDO EVENTOS DE FORMA MANUAL E CRIANDO O ADAPTER*/
         lista_eventos = new ArrayList<>();
 
         lista_eventos.add("4532");

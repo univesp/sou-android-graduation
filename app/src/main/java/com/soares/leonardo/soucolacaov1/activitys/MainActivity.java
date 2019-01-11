@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_message:
-                Toast.makeText(this, "Ver listas", Toast.LENGTH_SHORT).show();
 
                 FragEventos fragEventos = new FragEventos();
                 FragmentManager fragmentManager_eventos = getSupportFragmentManager();
