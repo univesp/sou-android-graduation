@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//teste
+
         FragEventos fragEventos = new FragEventos();
         FragmentManager fragmentManager_eventos = getSupportFragmentManager();
         fragmentManager_eventos.beginTransaction().replace(R.id.cl_eventos, fragEventos).commit();
@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_message:
                 Toast.makeText(this, "Ver listas", Toast.LENGTH_SHORT).show();
-              //  Intent intent1 = new Intent(this,ListarEventosActivity.class);
-              //  startActivity(intent1);
+
                 FragEventos fragEventos = new FragEventos();
                 FragmentManager fragmentManager_eventos = getSupportFragmentManager();
                 fragmentManager_eventos.beginTransaction().replace(R.id.cl_eventos, fragEventos).commit();

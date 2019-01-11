@@ -46,7 +46,7 @@ public class FragDashboard extends Fragment {
     int id_test = 0;
     //CONTADOR UTILIZADO PARA AVANÇAR OU DIMINUIR
     int positonStudents = 0;
-//
+
     public FragDashboard() {
         // Required empty public constructor
     }
@@ -121,45 +121,20 @@ public class FragDashboard extends Fragment {
                 int iddeteste = (bundles.getInt("aquiid"));
                 int a = iddeteste;
                 int ts=0;
-//                int test = Integer.parseInt((bundles.getString("id")));
-                //  Toast.makeText(getActivity(), String.valueOf(idCurrentStudent), Toast.LENGTH_SHORT).show();
-                // Toast.makeText(getActivity(), arrayListId.get(0), Toast.LENGTH_SHORT).show();
-
 
                 //PERCORRENDO O ARRAY
                 for (int i = 0; i <= arrayListId.size() - 1; i++) {
-                    //  Toast.makeText(getActivity(), String.valueOf(arrayListId.size()), Toast.LENGTH_SHORT).show();
-                    //a =5;
 
-                    // Toast.makeText(getActivity(),Integer.parseInt(arrayListId.get(i)), Toast.LENGTH_SHORT).show();
 
                     //VERIFICANDO SE A POSSICÇAO DO ALUNO ESTA IGUAL AO INDICE DO ARRAY
                     if (a == i) {
-                        //  Toast.makeText(getActivity(), idCurrentStudent, Toast.LENGTH_SHORT).show();
 
-                     //   a += 1;
-                        // idCurrentStudent=+1;
 
                        ts =ts+i+1;
 
                         Toast.makeText(getActivity(), String.valueOf(ts), Toast.LENGTH_SHORT).show();
 
 
-//String t =arrayListNome.get(i+1);us
-                        //    Toast.makeText(getActivity(), arrayListId.get(i+1), Toast.LENGTH_SHORT).show();
-
-                        // String teste =arrayListId.get(i+1);
-
-                        // positonStudents += i+1;
-
-
-                        //Toast.makeText(getActivity(), teste, Toast.LENGTH_SHORT).show();
-
-                      //  assert arrayListNome != null;
-                       // txtNome.setText(arrayListNome.get(a));
-                        ////  txtCurso.setText(arrayListCursos.get(iddeteste));
-                        //  txtRA.setText(arrayListRa.get(iddeteste));
-                        //   txtRG.setText(arrayListRg.get(iddeteste));
 
 
                         if (positonStudents == arrayListId.size() - 1) {
@@ -167,8 +142,7 @@ public class FragDashboard extends Fragment {
                             next.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    //  Toast.makeText(getActivity(), positonStudents, Toast.LENGTH_SHORT).show();
-                                    // Toast.makeText(getActivity(), "Lista de alunos finalizada!!", Toast.LENGTH_SHORT).show();
+
 
                                 }
                             });
@@ -176,7 +150,6 @@ public class FragDashboard extends Fragment {
                         }
 
                     }
-                    // positonStudents=0;
 
                 }
 

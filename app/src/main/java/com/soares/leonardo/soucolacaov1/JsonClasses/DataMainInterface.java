@@ -4,8 +4,7 @@ import com.google.gson.JsonArray;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-//
-// Criado Por Leonardo Soares
+
 public interface DataMainInterface {
     String BASE_URL = "https://sheetlabs.com/TECN/";
 

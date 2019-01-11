@@ -145,8 +145,7 @@ public class FragAlunos extends Fragment {
                                                     d.ra = js_data.get("ra").toString();
                                                     d.rg = js_data.get("rg").toString();
                                                     d.curso = js_data.get("curso").toString();
-                                                    //Toast.makeText(getContext(), "FAILURE ON RESPONSE: " + t.getMessage(), Toast.LENGTH_LONG).show();
-//
+
                                                     FragDashboard fragDashboard = new FragDashboard();
                                                     Bundle bundle1 = new Bundle();
                                                     int aquiTeste = i;
