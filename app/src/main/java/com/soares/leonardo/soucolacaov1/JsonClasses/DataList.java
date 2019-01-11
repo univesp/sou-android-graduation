@@ -6,7 +6,7 @@ public class DataList {
     public String rg;
 
     public String curso;
-
+//
     public String ra;
 
     public String id;

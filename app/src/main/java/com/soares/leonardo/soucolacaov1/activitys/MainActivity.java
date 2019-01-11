@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.soares.leonardo.soucolacaov1.R;
 import com.soares.leonardo.soucolacaov1.testefragment.FragEventos;
 
-
+//
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
 

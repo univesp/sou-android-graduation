@@ -133,10 +133,12 @@ public class FragAlunos extends Fragment {
                                         @Override
                                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                             for (int i = 0; i < jsonArray.size(); i++) {
-
+//
                                                 final JsonObject js_data = (JsonObject) jsonArray.get(i);
 
                                                 if (position == i) {
+
+
 
                                                     d.id = js_data.get("__id").toString();
                                                     d.nomealuno = js_data.get("nomealuno").toString();
@@ -144,10 +146,11 @@ public class FragAlunos extends Fragment {
                                                     d.rg = js_data.get("rg").toString();
                                                     d.curso = js_data.get("curso").toString();
                                                     //Toast.makeText(getContext(), "FAILURE ON RESPONSE: " + t.getMessage(), Toast.LENGTH_LONG).show();
-
+//
                                                     FragDashboard fragDashboard = new FragDashboard();
                                                     Bundle bundle1 = new Bundle();
-
+                                                    int aquiTeste = i;
+                                                    bundle1.putInt("aquiid", aquiTeste);
 
                                                     bundle1.putStringArrayList("array_id", list_id);
                                                     bundle1.putStringArrayList("array_nome", list_nome);
@@ -169,7 +172,10 @@ public class FragAlunos extends Fragment {
                                                     fragmentManager_alunos.beginTransaction().replace(R.id.cl_eventos, fragDashboard).commit();
                                                 }
 
+
                                             }
+
+
 
                                         }
                                     });
