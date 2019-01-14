@@ -46,7 +46,7 @@ public class FragDashboard extends Fragment {
     int  id_test=0;
     //CONTADOR UTILIZADO PARA AVANÇAR OU DIMINUIR
     public FragDashboard() {
-        // Required empty public constructor
+        // Precisa de um construtor vazui
     }
 
     @Override
