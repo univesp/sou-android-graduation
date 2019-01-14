@@ -165,7 +165,7 @@ public class FragDashboard extends Fragment {
 
                 Bundle bundles = getArguments();
 
-
+//array com todos os dados do json
                 ArrayList<String> arrayListId = bundles.getStringArrayList("array_id");
                 ArrayList<String> arrayListNome = bundles.getStringArrayList("array_nome");
                 ArrayList<String> arrayListRa = bundles.getStringArrayList("array_ra");
